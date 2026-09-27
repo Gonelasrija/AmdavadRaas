@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AmdavadLogo } from './AmdavadLogo';
-import { Area } from '../types';
+import { TabType } from './BottomNav';
 import { 
   MapPin, 
   ChevronDown, 
@@ -8,80 +8,95 @@ import {
   Search, 
   SlidersHorizontal,
   Check,
-  X
+  X,
+  Plus,
+  Compass,
+  Ticket,
+  MessageSquare,
+  Sparkles
 } from 'lucide-react';
 
 interface HeaderProps {
+  activeTab: TabType;
+  onTabChange: (tab: TabType) => void;
   selectedArea: string;
   onSelectArea: (area: string) => void;
   searchQuery: string;
   onSearchChange: (query: string) => void;
   onOpenNotifications: () => void;
+  onOpenHostModal: () => void;
   hasActivePasses: boolean;
   activePassesCount: number;
-  onNavigateToWallet: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
+  activeTab,
+  onTabChange,
   selectedArea,
   onSelectArea,
   searchQuery,
   onSearchChange,
   onOpenNotifications,
+  onOpenHostModal,
   hasActivePasses,
   activePassesCount,
-  onNavigateToWallet
 }) => {
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
 
-  const areasList: { name: string; city: string }[] = [
-    { name: 'All Ahmedabad & Gandhinagar', city: 'Gujarat' },
-    { name: 'SG Highway', city: 'Ahmedabad' },
-    { name: 'Sindhu Bhavan', city: 'Ahmedabad' },
-    { name: 'Bodakdev & Satellite', city: 'Ahmedabad' },
-    { name: 'Old City (Heritage Pols)', city: 'Ahmedabad' },
-    { name: 'Kankaria Lakefront', city: 'Ahmedabad' },
-    { name: 'Vaishnodevi Circle', city: 'Ahmedabad' },
-    { name: 'Sector 11 Cultural Ground', city: 'Gandhinagar' },
-    { name: 'GIFT City Promenade', city: 'Gandhinagar' },
-    { name: 'Infocity & Kudasan', city: 'Gandhinagar' },
+  const areasList: { name: string; city: string; tag: string }[] = [
+    { name: 'All Ahmedabad & Gandhinagar', city: 'Gujarat', tag: 'All Venues' },
+    { name: 'SG Highway', city: 'Ahmedabad', tag: 'Club & Party Plots' },
+    { name: 'Sindhu Bhavan', city: 'Ahmedabad', tag: 'VIP Arenas' },
+    { name: 'Bodakdev & Satellite', city: 'Ahmedabad', tag: 'Premier Clubs' },
+    { name: 'Old City (Heritage Pols)', city: 'Ahmedabad', tag: 'Free Sheri Garba' },
+    { name: 'Kankaria Lakefront', city: 'Ahmedabad', tag: 'Cultural Arena' },
+    { name: 'Vaishnodevi Circle', city: 'Ahmedabad', tag: 'Open Grounds' },
+    { name: 'Sector 11 Cultural Ground', city: 'Gandhinagar', tag: 'Capital Stage' },
+    { name: 'GIFT City Promenade', city: 'Gandhinagar', tag: 'Hi-Tech Arena' },
+    { name: 'Infocity & Kudasan', city: 'Gandhinagar', tag: 'Youth Raas' },
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#f8f9ff]/90 backdrop-blur-xl border-b border-[#e6eeff] shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex flex-col gap-2">
-        {/* Top Tier: Logo, Location, Notification & Wallet */}
-        <div className="flex items-center justify-between gap-2">
-          {/* Logo & Location Dropdown */}
-          <div className="flex items-center gap-2 sm:gap-4">
-            <AmdavadLogo size="md" />
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-[#E7E5E4] shadow-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Main Nav Row */}
+        <div className="flex items-center justify-between h-16 gap-3 sm:gap-6">
+          
+          {/* Brand & Location Lockup */}
+          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+            <button 
+              onClick={() => onTabChange('explore')}
+              className="text-left focus:outline-none group transition-transform active:scale-98"
+            >
+              <AmdavadLogo size="md" />
+            </button>
 
-            {/* Location selector */}
+            {/* Location selector dropdown */}
             <div className="relative">
               <button
                 onClick={() => setIsLocationDropdownOpen(!isLocationDropdownOpen)}
-                className="flex items-center gap-1 py-1 px-2 rounded-lg hover:bg-[#eff4ff] transition-colors text-left"
+                className="flex items-center gap-1.5 py-1.5 px-2.5 rounded-full bg-[#FCFAF7] border border-[#E7E5E4] hover:border-[#9E0038]/30 transition-all text-left text-xs font-semibold text-[#1C1917]"
                 aria-label="Select Amdavad area"
               >
                 <MapPin className="w-3.5 h-3.5 text-[#9E0038] shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-[#121c2a] truncate max-w-[130px] sm:max-w-[190px]">
-                  {selectedArea}
+                <span className="truncate max-w-[110px] sm:max-w-[160px] md:max-w-[200px]">
+                  {selectedArea === 'All' ? 'All Amdavad' : selectedArea}
                 </span>
-                <ChevronDown className="w-3.5 h-3.5 text-[#554336] shrink-0" />
+                <ChevronDown className="w-3.5 h-3.5 text-[#57534E] shrink-0" />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Location Dropdown Menu */}
               {isLocationDropdownOpen && (
                 <>
                   <div 
                     className="fixed inset-0 z-40" 
                     onClick={() => setIsLocationDropdownOpen(false)} 
                   />
-                  <div className="absolute left-0 top-full mt-1.5 w-64 bg-white rounded-xl shadow-xl border border-[#dee9fc] p-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
-                    <div className="px-2 py-1 text-[11px] font-bold text-[#9E0038] uppercase tracking-wider">
-                      Select Zone / Neighborhood
+                  <div className="absolute left-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-[#E7E5E4] p-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-3 py-1.5 text-[10px] font-bold text-[#9E0038] uppercase tracking-wider">
+                      Select Amdavad / Gandhinagar Zone
                     </div>
-                    <div className="max-h-64 overflow-y-auto space-y-0.5">
+                    <div className="max-h-72 overflow-y-auto space-y-1">
                       {areasList.map((item) => {
                         const isSelected = selectedArea === item.name || (item.name === 'All Ahmedabad & Gandhinagar' && selectedArea === 'All');
                         return (
@@ -91,17 +106,17 @@ export const Header: React.FC<HeaderProps> = ({
                               onSelectArea(item.name === 'All Ahmedabad & Gandhinagar' ? 'All' : item.name);
                               setIsLocationDropdownOpen(false);
                             }}
-                            className={`w-full flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-medium text-left transition-colors ${
+                            className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-left transition-colors ${
                               isSelected
-                                ? 'bg-pink-50 text-[#9E0038] font-bold'
-                                : 'text-[#121c2a] hover:bg-[#eff4ff]'
+                                ? 'bg-[#FFF0F4] text-[#9E0038] font-bold'
+                                : 'text-[#1C1917] hover:bg-[#FCFAF7]'
                             }`}
                           >
                             <div>
-                              <div>{item.name}</div>
-                              <span className="text-[10px] text-gray-500">{item.city}</span>
+                              <div className="font-semibold">{item.name}</div>
+                              <span className="text-[10px] text-[#57534E]">{item.city} · {item.tag}</span>
                             </div>
-                            {isSelected && <Check className="w-3.5 h-3.5 text-[#9E0038]" />}
+                            {isSelected && <Check className="w-4 h-4 text-[#9E0038] shrink-0" />}
                           </button>
                         );
                       })}
@@ -112,61 +127,131 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </div>
 
-          {/* Right Actions: Notifications & My Wallet / Active Pass Badge */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             <button
-              onClick={onOpenNotifications}
-              className="relative p-2 rounded-full text-[#121c2a] hover:bg-[#e6eeff] transition-colors"
-              aria-label="Notifications & Pass Alerts"
+              onClick={() => onTabChange('explore')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
+                activeTab === 'explore'
+                  ? 'bg-[#FFF0F4] text-[#9E0038]'
+                  : 'text-[#57534E] hover:text-[#1C1917] hover:bg-[#FCFAF7]'
+              }`}
             >
-              <Bell className="w-5 h-5 text-[#554336]" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#D92662] rounded-full ring-2 ring-white animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Explore Garba</span>
             </button>
 
-            {/* Passes & Wallet Jump Button */}
             <button
-              onClick={onNavigateToWallet}
-              className="flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs font-semibold shadow-sm transition-all active:scale-95"
+              onClick={() => onTabChange('venues')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
+                activeTab === 'venues'
+                  ? 'bg-[#FFF0F4] text-[#9E0038]'
+                  : 'text-[#57534E] hover:text-[#1C1917] hover:bg-[#FCFAF7]'
+              }`}
             >
-              <span className="hidden sm:inline">Passes</span>
+              <Compass className="w-3.5 h-3.5" />
+              <span>Venues & Map</span>
+            </button>
+
+            <button
+              onClick={() => onTabChange('wallet')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
+                activeTab === 'wallet'
+                  ? 'bg-[#FFF0F4] text-[#9E0038]'
+                  : 'text-[#57534E] hover:text-[#1C1917] hover:bg-[#FCFAF7]'
+              }`}
+            >
+              <Ticket className="w-3.5 h-3.5" />
+              <span>Passes & Wallet</span>
+              {hasActivePasses && (
+                <span className="w-2 h-2 rounded-full bg-[#D92662]" />
+              )}
+            </button>
+
+            <button
+              onClick={() => onTabChange('community')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold transition-all ${
+                activeTab === 'community'
+                  ? 'bg-[#FFF0F4] text-[#9E0038]'
+                  : 'text-[#57534E] hover:text-[#1C1917] hover:bg-[#FCFAF7]'
+              }`}
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Community Buzz</span>
+            </button>
+          </nav>
+
+          {/* Right Header Actions */}
+          <div className="flex items-center gap-2">
+            {/* Host Garba Button (Desktop) */}
+            <button
+              onClick={onOpenHostModal}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#9E0038]/30 hover:border-[#9E0038] bg-white text-[#9E0038] text-xs font-bold hover:bg-[#FFF0F4] transition-all"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Host Garba</span>
+            </button>
+
+            {/* Notification Bell with alert pulse */}
+            <button
+              onClick={onOpenNotifications}
+              className="relative p-2 rounded-full text-[#1C1917] hover:bg-[#FCFAF7] border border-transparent hover:border-[#E7E5E4] transition-all"
+              aria-label="Notifications & Alerts"
+            >
+              <Bell className="w-4 h-4 text-[#57534E]" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#D92662] rounded-full ring-2 ring-white" />
+            </button>
+
+            {/* My Passes CTA Button */}
+            <button
+              onClick={() => onTabChange('wallet')}
+              className="flex items-center gap-1.5 py-1.5 px-3 sm:px-4 rounded-full bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs font-bold shadow-xs transition-all active:scale-95"
+            >
+              <Ticket className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">My Passes</span>
               {hasActivePasses ? (
-                <span className="px-1.5 py-0.2 bg-amber-200 text-[#700028] rounded-full text-[10px] font-bold">
+                <span className="px-1.5 py-0.2 bg-[#FEF3C7] text-[#700028] rounded-full text-[10px] font-bold">
                   {activePassesCount}
                 </span>
               ) : (
-                <span className="text-[11px] font-bold">Wallet</span>
+                <span className="xs:hidden">Passes</span>
               )}
             </button>
           </div>
         </div>
 
-        {/* Bottom Tier: Universal Search Bar */}
-        <div className="relative flex items-center">
-          <div className="w-full relative flex items-center bg-white border border-[#dee9fc] hover:border-[#9E0038]/40 focus-within:border-[#9E0038] rounded-xl px-3 py-2 shadow-[0_1px_4px_rgba(0,0,0,0.03)] transition-all">
-            <Search className="w-4 h-4 text-gray-400 shrink-0 mr-2" />
+        {/* Global Live Search Bar */}
+        <div className="pb-3 pt-0.5">
+          <div className="w-full relative flex items-center bg-[#FCFAF7] border border-[#E7E5E4] hover:border-[#9E0038]/40 focus-within:border-[#9E0038] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#9E0038]/10 rounded-2xl px-3.5 py-2 shadow-2xs transition-all">
+            <Search className="w-4 h-4 text-[#57534E] shrink-0 mr-2.5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Search garba grounds, singers (Aditya Gadhvi, Kinjal Dave), free parking, VIP..."
-              className="w-full bg-transparent text-xs sm:text-sm text-[#121c2a] placeholder:text-gray-400 focus:outline-none"
+              placeholder="Search by garba ground, singer (Aditya Gadhvi, Kinjal Dave), free parking, pol garba..."
+              className="w-full bg-transparent text-xs sm:text-sm text-[#1C1917] placeholder:text-[#A8A29E] focus:outline-none"
             />
             {searchQuery && (
               <button
                 onClick={() => onSearchChange('')}
-                className="p-1 text-gray-400 hover:text-gray-600 rounded-full"
+                className="p-1 text-[#57534E] hover:text-[#1C1917] rounded-full transition-colors"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
             )}
-            <div className="h-4 w-px bg-gray-200 mx-1.5 shrink-0" />
+            <div className="h-4 w-px bg-[#E7E5E4] mx-2 shrink-0" />
             <button 
               onClick={() => onSearchChange(searchQuery ? '' : 'Free Parking')}
-              className="text-[#9E0038] hover:text-[#7D002C] p-0.5 shrink-0"
-              title="Filter"
+              className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all shrink-0 flex items-center gap-1 ${
+                searchQuery.toLowerCase().includes('free parking')
+                  ? 'bg-emerald-100 text-emerald-800'
+                  : 'text-[#9E0038] hover:bg-[#FFF0F4]'
+              }`}
+              title="Filter Free Parking"
             >
-              <SlidersHorizontal className="w-4 h-4" />
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">🅿️ Free Parking</span>
             </button>
           </div>
         </div>
@@ -174,3 +259,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

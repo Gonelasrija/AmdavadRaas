@@ -125,39 +125,39 @@ export const PassesWalletView: React.FC<PassesWalletViewProps> = ({
   };
 
   return (
-    <div className="flex flex-col w-full max-w-2xl mx-auto px-4 sm:px-6 py-4 gap-5">
+    <div className="flex flex-col w-full max-w-2xl mx-auto px-4 sm:px-6 py-6 gap-6 text-[#1C1917]">
       {/* Toast Feedback */}
       {shareNotice && (
-        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-[#121c2a] text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xl border border-[#8d4b00] animate-in fade-in">
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-[#1C1917] text-white px-4 py-2 rounded-full text-xs font-semibold shadow-xl border border-[#9E0038] animate-in fade-in">
           {shareNotice}
         </div>
       )}
 
       {/* Header & Title */}
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div>
             <span className="text-[10px] font-bold text-[#9E0038] uppercase tracking-wider block">
               Khelaiya Passbook
             </span>
-            <h1 className="text-xl sm:text-2xl font-extrabold text-[#121c2a]">
+            <h1 className="text-2xl font-extrabold text-[#1C1917] tracking-tight">
               My Passes & Wallet
             </h1>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100 text-[#700028] text-xs font-bold shadow-xs">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF0F4] text-[#9E0038] text-xs font-bold border border-[#FED7E2] shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-[#9E0038] animate-ping" />
             <span>{activePasses.length > 0 ? activePasses.length : 1} Pass Active</span>
           </div>
         </div>
 
       {/* Tab Filters */}
-      <div className="flex p-1 bg-pink-50/70 border border-pink-100 rounded-2xl gap-1 mt-2">
+      <div className="flex p-1 bg-[#FCFAF7] border border-[#E7E5E4] rounded-2xl gap-1 mt-2">
         <button
           onClick={() => setActiveTab('tonight')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all text-center ${
             activeTab === 'tonight'
-              ? 'bg-[#9E0038] text-white shadow-sm'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              ? 'bg-[#9E0038] text-white shadow-xs'
+              : 'text-[#57534E] hover:text-[#1C1917]'
           }`}
         >
           Active (Tonight)
@@ -166,8 +166,8 @@ export const PassesWalletView: React.FC<PassesWalletViewProps> = ({
           onClick={() => setActiveTab('upcoming')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all text-center ${
             activeTab === 'upcoming'
-              ? 'bg-[#9E0038] text-white shadow-sm'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              ? 'bg-[#9E0038] text-white shadow-xs'
+              : 'text-[#57534E] hover:text-[#1C1917]'
           }`}
         >
           Upcoming Nights
@@ -176,8 +176,8 @@ export const PassesWalletView: React.FC<PassesWalletViewProps> = ({
           onClick={() => setActiveTab('parking')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all text-center ${
             activeTab === 'parking'
-              ? 'bg-[#9E0038] text-white shadow-sm'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              ? 'bg-[#9E0038] text-white shadow-xs'
+              : 'text-[#57534E] hover:text-[#1C1917]'
           }`}
         >
           Parking & Free Spots ({parkingBookings.length})
@@ -188,12 +188,12 @@ export const PassesWalletView: React.FC<PassesWalletViewProps> = ({
       {activeTab === 'tonight' && (
         <>
           {/* Hero Digital Pass Ticket */}
-          <div className="relative w-full rounded-3xl bg-white shadow-xl border border-[#dee9fc] overflow-hidden">
+          <div className="relative w-full rounded-3xl bg-white shadow-lg border border-[#E7E5E4] overflow-hidden">
             {/* Top Decorative Banner */}
-            <div className="bg-gradient-to-r from-[#9E0038] via-[#C41E3A] to-[#D92662] px-4 py-3 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#9E0038] via-[#85002C] to-[#58001F] px-4 py-3 text-white flex items-center justify-between">
               <div className="flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-amber-300" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-200">
+                <Sparkles className="w-4 h-4 text-[#FEF3C7]" />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#FEF3C7]">
                   {primaryPass.nightName}
                 </span>
               </div>
@@ -206,140 +206,140 @@ export const PassesWalletView: React.FC<PassesWalletViewProps> = ({
             {/* Event Name & Venue */}
             <div className="p-4 sm:p-5 flex items-start justify-between">
               <div className="flex-1 pr-2">
-                <span className="text-[10px] font-bold text-[#D92662] uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-[#9E0038] uppercase tracking-wider">
                   Navratri Mahotsav 2025
                 </span>
-                <h2 className="text-xl font-extrabold text-[#121c2a] mt-0.5">
+                <h2 className="text-xl font-extrabold text-[#1C1917] mt-0.5">
                   {primaryPass.eventName}
                 </h2>
-                <p className="text-xs text-[#554336] flex items-center gap-1 mt-1">
+                <p className="text-xs text-[#57534E] flex items-center gap-1 mt-1">
                   <MapPin className="w-3.5 h-3.5 text-[#9E0038] shrink-0" />
                   <span>{primaryPass.venueName}</span>
                 </p>
               </div>
 
-              <div className="w-12 h-12 rounded-2xl bg-pink-100 text-[#9E0038] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-[#FFF0F4] text-[#9E0038] flex items-center justify-center shrink-0 border border-[#FED7E2]">
                 <Ticket className="w-6 h-6" />
               </div>
             </div>
 
             {/* Ticket Tear Cutout Edge (Visual Notch Effect) */}
             <div className="relative flex items-center w-full my-0.5">
-              <div className="w-4 h-6 rounded-r-full bg-[#f8f9ff] shadow-inner -ml-1 border-r border-t border-b border-[#dee9fc]" />
-              <div className="flex-1 border-t-2 border-dashed border-[#dbc2b0]/60 mx-2" />
-              <div className="w-4 h-6 rounded-l-full bg-[#f8f9ff] shadow-inner -mr-1 border-l border-t border-b border-[#dee9fc]" />
+              <div className="w-4 h-6 rounded-r-full bg-[#FCFAF7] shadow-inner -ml-1 border-r border-t border-b border-[#E7E5E4]" />
+              <div className="flex-1 border-t-2 border-dashed border-[#E7E5E4] mx-2" />
+              <div className="w-4 h-6 rounded-l-full bg-[#FCFAF7] shadow-inner -mr-1 border-l border-t border-b border-[#E7E5E4]" />
             </div>
 
             {/* QR Code & Security Stamp */}
-            <div className="p-4 sm:p-5 flex flex-col items-center gap-3 bg-[#eff4ff]/40">
-              <div className="w-full flex items-center justify-between px-3 py-1 bg-pink-100/70 rounded-lg text-[10px] font-bold">
+            <div className="p-4 sm:p-5 flex flex-col items-center gap-3 bg-[#FCFAF7]">
+              <div className="w-full flex items-center justify-between px-3 py-1.5 bg-[#FFF0F4] border border-[#FED7E2] rounded-xl text-[10px] font-bold">
                 <span className="text-[#9E0038] flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5" />
                   Amdavad Raas Verified Turnstile Pass
                 </span>
-                <span className="text-gray-500">Non-Transferable</span>
+                <span className="text-[#78716C]">Non-Transferable</span>
               </div>
 
               {/* High-Contrast Interactive QR Code representation */}
-              <div className="p-4 bg-white rounded-2xl shadow-md border border-[#dee9fc] flex flex-col items-center">
+              <div className="p-4 bg-white rounded-2xl shadow-sm border border-[#E7E5E4] flex flex-col items-center">
                 <svg className="w-48 h-48 rounded-lg" viewBox="0 0 100 100" fill="none">
                   {/* Position Corners */}
-                  <rect x="6" y="6" width="26" height="26" rx="4" fill="#121C2A" />
+                  <rect x="6" y="6" width="26" height="26" rx="4" fill="#1C1917" />
                   <rect x="10" y="10" width="18" height="18" rx="2" fill="#FFFFFF" />
                   <rect x="14" y="14" width="10" height="10" rx="1" fill="#9E0038" />
                   
-                  <rect x="68" y="6" width="26" height="26" rx="4" fill="#121C2A" />
+                  <rect x="68" y="6" width="26" height="26" rx="4" fill="#1C1917" />
                   <rect x="72" y="10" width="18" height="18" rx="2" fill="#FFFFFF" />
                   <rect x="76" y="14" width="10" height="10" rx="1" fill="#9E0038" />
 
-                  <rect x="6" y="68" width="26" height="26" rx="4" fill="#121C2A" />
+                  <rect x="6" y="68" width="26" height="26" rx="4" fill="#1C1917" />
                   <rect x="10" y="72" width="18" height="18" rx="2" fill="#FFFFFF" />
                   <rect x="14" y="76" width="10" height="10" rx="1" fill="#9E0038" />
 
                   {/* QR Matrix Payload Pattern */}
-                  <rect x="36" y="8" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="36" y="8" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="46" y="8" width="6" height="6" rx="1" fill="#D92662" />
-                  <rect x="56" y="8" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="36" y="18" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="56" y="8" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="36" y="18" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="46" y="24" width="6" height="6" rx="1" fill="#9E0038" />
-                  <rect x="56" y="18" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="56" y="18" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="8" y="38" width="6" height="6" rx="1" fill="#D92662" />
-                  <rect x="18" y="44" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="26" y="38" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="18" y="44" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="26" y="38" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="36" y="36" width="8" height="8" rx="2" fill="#9E0038" />
-                  <rect x="48" y="36" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="58" y="36" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="36" y="48" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="48" y="36" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="58" y="36" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="36" y="48" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="46" y="46" width="8" height="8" rx="2" fill="#D92662" />
                   <rect x="58" y="48" width="6" height="6" rx="1" fill="#9E0038" />
-                  <rect x="8" y="56" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="8" y="56" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="18" y="56" width="6" height="6" rx="1" fill="#9E0038" />
-                  <rect x="28" y="56" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="68" y="38" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="28" y="56" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="68" y="38" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="78" y="44" width="6" height="6" rx="1" fill="#D92662" />
-                  <rect x="88" y="38" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="88" y="38" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="36" y="68" width="6" height="6" rx="1" fill="#9E0038" />
-                  <rect x="46" y="68" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="56" y="74" width="6" height="6" rx="1" fill="#121C2A" />
-                  <rect x="68" y="56" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="46" y="68" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="56" y="74" width="6" height="6" rx="1" fill="#1C1917" />
+                  <rect x="68" y="56" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="78" y="62" width="6" height="6" rx="1" fill="#9E0038" />
-                  <rect x="88" y="56" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="88" y="56" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="68" y="78" width="6" height="6" rx="1" fill="#D92662" />
-                  <rect x="78" y="78" width="6" height="6" rx="1" fill="#121C2A" />
+                  <rect x="78" y="78" width="6" height="6" rx="1" fill="#1C1917" />
                   <rect x="88" y="86" width="6" height="6" rx="1" fill="#9E0038" />
                 </svg>
 
                 {/* Auto Refresh Token Pill */}
-                <div className="flex items-center gap-1.5 mt-2 bg-[#eff4ff] px-3 py-1 rounded-full text-[11px] font-semibold text-[#121c2a]">
+                <div className="flex items-center gap-1.5 mt-2 bg-[#FFF0F4] px-3 py-1 rounded-full text-[11px] font-semibold text-[#1C1917] border border-[#FED7E2]">
                   <RefreshCw className="w-3.5 h-3.5 text-[#9E0038] animate-spin" />
                   <span>
-                    Dynamic QR Refreshes in <strong className="text-[#9E0038] font-bold">{qrCountdown}s</strong>
+                    Dynamic QR Refreshes in <strong className="text-[#9E0038] font-bold tabular-nums">{qrCountdown}s</strong>
                   </span>
                 </div>
               </div>
 
-              <span className="text-[11px] text-[#554336] text-center max-w-sm">
+              <span className="text-[11px] text-[#57534E] text-center max-w-sm">
                 Present at scanner kiosk · Max phone screen brightness applied automatically
               </span>
             </div>
 
             {/* Pass Metadata 2x2 Grid */}
-            <div className="p-4 sm:p-5 grid grid-cols-2 gap-2.5 bg-white text-xs">
-              <div className="p-2.5 rounded-xl bg-[#eff4ff]">
-                <span className="text-[10px] text-gray-500 uppercase font-semibold">Pass Tier</span>
-                <p className="font-bold text-[#121c2a] mt-0.5">{primaryPass.tierName}</p>
-                <span className="text-[10px] text-[#af275a] font-medium">1 Female + 1 Male Entry</span>
+            <div className="p-4 sm:p-5 grid grid-cols-2 gap-2.5 bg-white text-xs border-t border-[#E7E5E4]">
+              <div className="p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#E7E5E4]">
+                <span className="text-[10px] text-[#78716C] uppercase font-bold">Pass Tier</span>
+                <p className="font-bold text-[#1C1917] mt-0.5">{primaryPass.tierName}</p>
+                <span className="text-[10px] text-[#9E0038] font-medium">1 Female + 1 Male Entry</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#eff4ff]">
-                <span className="text-[10px] text-gray-500 uppercase font-semibold">Designated Entry</span>
+              <div className="p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#E7E5E4]">
+                <span className="text-[10px] text-[#78716C] uppercase font-bold">Designated Entry</span>
                 <p className="font-bold text-[#9E0038] mt-0.5">{primaryPass.gateAssigned}</p>
-                <span className="text-[10px] text-[#554336]">North Arena Turnstile</span>
+                <span className="text-[10px] text-[#57534E]">North Arena Turnstile</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#eff4ff]">
-                <span className="text-[10px] text-gray-500 uppercase font-semibold">Payment Info</span>
-                <p className="font-bold text-[#121c2a] mt-0.5">₹{primaryPass.totalAmount}.00</p>
-                <span className="text-[10px] text-[#554336]">UPI Ref: {primaryPass.upiRef}</span>
+              <div className="p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#E7E5E4]">
+                <span className="text-[10px] text-[#78716C] uppercase font-bold">Payment Info</span>
+                <p className="font-bold text-[#1C1917] mt-0.5 tabular-nums">₹{primaryPass.totalAmount}.00</p>
+                <span className="text-[10px] text-[#57534E]">UPI Ref: {primaryPass.upiRef}</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#eff4ff]">
-                <span className="text-[10px] text-gray-500 uppercase font-semibold">Dress Code</span>
-                <p className="font-bold text-[#121c2a] mt-0.5">Traditional Mandatory</p>
-                <span className="text-[10px] text-[#554336]">Kediyu / Chaniya Choli</span>
+              <div className="p-2.5 rounded-2xl bg-[#FCFAF7] border border-[#E7E5E4]">
+                <span className="text-[10px] text-[#78716C] uppercase font-bold">Dress Code</span>
+                <p className="font-bold text-[#1C1917] mt-0.5">Traditional Mandatory</p>
+                <span className="text-[10px] text-[#57534E]">Kediyu / Chaniya Choli</span>
               </div>
             </div>
 
             {/* Physical RFID Wristband & Valet Tag Alert */}
-            <div className="mx-4 sm:mx-5 mb-4 p-3 rounded-2xl bg-[#ffd9e0]/40 border border-[#ffd9e0] flex items-start gap-2.5 text-xs">
-              <div className="w-7 h-7 rounded-full bg-[#ffd9e0] text-[#af275a] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="mx-4 sm:mx-5 mb-4 p-3 rounded-2xl bg-[#FFF0F4] border border-[#FED7E2] flex items-start gap-2.5 text-xs">
+              <div className="w-7 h-7 rounded-full bg-[#FED7E2] text-[#9E0038] flex items-center justify-center shrink-0 mt-0.5">
                 <Ticket className="w-3.5 h-3.5" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-[#8e0542]">
+                <span className="font-bold text-[#9E0038]">
                   RFID Wristband & Valet Tag Pickup
                 </span>
-                <p className="text-[11px] text-[#554336] mt-0.5 leading-relaxed">
+                <p className="text-[11px] text-[#57534E] mt-0.5 leading-relaxed">
                   Collect your glowing RFID wristband at <strong>{primaryPass.rfidBooth}</strong> before 9:00 PM. Includes reserved <strong>Valet Tag ({primaryPass.parkingSlotCode || 'P1 VIP Tag'})</strong>.
                 </p>
               </div>

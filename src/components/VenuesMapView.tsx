@@ -94,8 +94,8 @@ export const VenuesMapView: React.FC<VenuesMapViewProps> = ({
             Live Ground & Free Parking Intelligence
           </span>
         </div>
-        <div className="flex items-center gap-1 text-xs text-[#554336]">
-          <Clock className="w-3.5 h-3.5 text-gray-400" />
+        <div className="flex items-center gap-1 text-xs text-[#57534E]">
+          <Clock className="w-3.5 h-3.5 text-stone-400" />
           <span>Sensors & Municipal Police bays refreshed live</span>
         </div>
       </div>
@@ -111,7 +111,7 @@ export const VenuesMapView: React.FC<VenuesMapViewProps> = ({
       {/* Explore Other Ahmedabad & Gandhinagar Grounds Carousel */}
       <div className="flex flex-col gap-2.5 pt-3">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-bold text-[#121c2a]">
+          <h3 className="text-sm font-bold text-[#1C1917]">
             Explore Other Ahmedabad & Gandhinagar Grounds
           </h3>
           <span className="text-xs font-semibold text-[#9E0038]">
@@ -126,18 +126,18 @@ export const VenuesMapView: React.FC<VenuesMapViewProps> = ({
               <div
                 key={evt.id}
                 onClick={() => onSelectEvent(evt)}
-                className={`min-w-[260px] p-3.5 rounded-2xl bg-white shadow-sm border transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
+                className={`min-w-[260px] p-3.5 rounded-2xl bg-white shadow-2xs border transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
                   isSelected
-                    ? 'border-[#9E0038] ring-2 ring-[#9E0038]/20 bg-pink-50/30'
-                    : 'border-[#dee9fc] hover:shadow-md'
+                    ? 'border-[#9E0038] ring-2 ring-[#9E0038]/20 bg-[#FFF0F4]'
+                    : 'border-[#E7E5E4] hover:shadow-md hover:border-[#9E0038]/30'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex flex-col min-w-0">
-                    <span className="text-xs font-extrabold text-[#121c2a] truncate">
+                    <span className="text-xs font-extrabold text-[#1C1917] truncate">
                       {evt.venueName}
                     </span>
-                    <span className="text-[11px] text-[#554336] truncate">
+                    <span className="text-[11px] text-[#57534E] truncate">
                       {evt.area}, {evt.city}
                     </span>
                   </div>
@@ -148,20 +148,20 @@ export const VenuesMapView: React.FC<VenuesMapViewProps> = ({
                   </span>
                 </div>
 
-                <div className="flex items-center gap-1.5 text-xs text-[#D92662] font-semibold truncate">
+                <div className="flex items-center gap-1.5 text-xs text-[#E65100] font-semibold truncate">
                   <Flame className="w-3.5 h-3.5 shrink-0" />
                   <span className="truncate">{evt.headliners[0]}</span>
                 </div>
 
                 {evt.nearbyFreeParking && evt.nearbyFreeParking.length > 0 && (
-                  <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+                  <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100">
                     <span>🅿️ Free Parking: {evt.nearbyFreeParking[0].distance}</span>
                   </div>
                 )}
 
-                <div className="flex items-center justify-between text-xs pt-1 border-t border-[#eff4ff]">
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-stone-100">
                   <span className="font-bold text-[#9E0038]">Pass: {evt.startingPrice === 0 ? 'Free' : `₹${evt.startingPrice}`}</span>
-                  <span className="text-[11px] text-gray-500">
+                  <span className="text-[11px] text-stone-500">
                     {evt.parkingLots[0]?.availableSpots || 40}+ P spots
                   </span>
                 </div>

@@ -290,12 +290,12 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
   }, [userCoords]);
 
   return (
-    <div className="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden shadow-inner border border-[#dee9fc] bg-[#e6eeff]">
+    <div className="relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden shadow-inner border border-[#E7E5E4] bg-stone-100">
       {/* Map viewport */}
       <div ref={mapContainerRef} className="w-full h-full z-0" />
 
       {/* Floating Status Toast Top-Left */}
-      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-[#dee9fc] text-[11px] font-bold text-[#121c2a]">
+      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-[#E7E5E4] text-[11px] font-bold text-[#1C1917]">
         <span className="w-2 h-2 rounded-full bg-[#9E0038] animate-ping" />
         <span className="tracking-wide">Live Traffic: SG Hwy Slow at Iscon Crossroad</span>
       </div>
@@ -304,7 +304,7 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
       <div className="absolute top-3 right-3 z-10 flex flex-col gap-2">
         <button
           onClick={onLocateMe}
-          className={`w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#121c2a] hover:bg-[#eff4ff] active:scale-95 transition-all ${
+          className={`w-9 h-9 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#1C1917] hover:bg-stone-50 active:scale-95 transition-all border border-[#E7E5E4] ${
             isLocating ? 'animate-spin text-[#9E0038]' : ''
           }`}
           title="My Live Location in Amdavad"
@@ -318,22 +318,22 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
               mapInstanceRef.current.setView(selectedEvent.coordinates, 14, { animate: true });
             }
           }}
-          className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#121c2a] hover:bg-[#eff4ff] active:scale-95 transition-all"
+          className="w-9 h-9 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#1C1917] hover:bg-stone-50 active:scale-95 transition-all border border-[#E7E5E4]"
           title="Center on Selected Venue"
         >
-          <Compass className="w-4 h-4 text-[#554336]" />
+          <Compass className="w-4 h-4 text-[#57534E]" />
         </button>
       </div>
 
       {/* Bottom Floating Filter Rail inside Map */}
       <div className="absolute bottom-3 left-3 right-3 z-10 overflow-x-auto no-scrollbar py-1">
-        <div className="flex items-center gap-1.5 w-max bg-white/90 backdrop-blur-md p-1 rounded-xl shadow-lg border border-[#dee9fc]">
+        <div className="flex items-center gap-1.5 w-max bg-white/95 backdrop-blur-md p-1.5 rounded-2xl shadow-lg border border-[#E7E5E4]">
           <button
             onClick={() => onFilterLayerChange('all')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
               activeFilterLayer === 'all'
                 ? 'bg-[#9E0038] text-white shadow-xs'
-                : 'text-[#554336] hover:bg-[#eff4ff]'
+                : 'text-[#57534E] hover:bg-stone-100'
             }`}
           >
             <MapPin className="w-3.5 h-3.5" />
@@ -343,10 +343,10 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
           {/* Dedicated Free Parking Layer Filter */}
           <button
             onClick={() => onFilterLayerChange('freeparking')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-colors ${
               activeFilterLayer === 'freeparking'
                 ? 'bg-emerald-700 text-white shadow-xs'
-                : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100'
+                : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/50'
             }`}
           >
             <Car className="w-3.5 h-3.5 text-emerald-600" />
@@ -355,10 +355,10 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
 
           <button
             onClick={() => onFilterLayerChange('parking')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
               activeFilterLayer === 'parking'
                 ? 'bg-[#9E0038] text-white shadow-xs'
-                : 'text-[#554336] hover:bg-[#eff4ff]'
+                : 'text-[#57534E] hover:bg-stone-100'
             }`}
           >
             <Car className="w-3.5 h-3.5" />
@@ -367,10 +367,10 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
 
           <button
             onClick={() => onFilterLayerChange('medical')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
               activeFilterLayer === 'medical'
                 ? 'bg-red-700 text-white shadow-xs'
-                : 'text-[#554336] hover:bg-[#eff4ff]'
+                : 'text-[#57534E] hover:bg-stone-100'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5 text-red-600" />
@@ -379,13 +379,13 @@ export const GarbaLeafletMap: React.FC<GarbaLeafletMapProps> = ({
 
           <button
             onClick={() => onFilterLayerChange('metro')}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
               activeFilterLayer === 'metro'
-                ? 'bg-[#831843] text-white shadow-xs'
-                : 'text-[#554336] hover:bg-[#eff4ff]'
+                ? 'bg-[#7D002C] text-white shadow-xs'
+                : 'text-[#57534E] hover:bg-stone-100'
             }`}
           >
-            <Train className="w-3.5 h-3.5 text-[#831843]" />
+            <Train className="w-3.5 h-3.5 text-[#7D002C]" />
             <span>Metro / BRTS</span>
           </button>
         </div>

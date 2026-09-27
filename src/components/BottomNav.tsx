@@ -24,7 +24,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   hasActivePass,
 }) => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-[#f8f9ff]/95 backdrop-blur-xl border-t border-[#dee9fc] shadow-[0_-2px_12px_rgba(0,0,0,0.04)] pb-safe">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-[#E7E5E4] shadow-[0_-2px_12px_rgba(0,0,0,0.05)] pb-safe">
       <div className="max-w-md mx-auto flex items-center justify-between h-16 px-2 sm:px-4">
         {/* Tab 1: Explore */}
         <button
@@ -32,7 +32,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
             activeTab === 'explore'
               ? 'text-[#9E0038] font-extrabold'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              : 'text-[#78716C] hover:text-[#1C1917]'
           }`}
           aria-label="Explore Garba"
         >
@@ -46,7 +46,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
             activeTab === 'venues'
               ? 'text-[#9E0038] font-extrabold'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              : 'text-[#78716C] hover:text-[#1C1917]'
           }`}
           aria-label="Map & Venues"
         >
@@ -75,7 +75,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           className={`relative flex flex-col items-center justify-center flex-1 h-full transition-colors ${
             activeTab === 'wallet'
               ? 'text-[#9E0038] font-extrabold'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              : 'text-[#78716C] hover:text-[#1C1917]'
           }`}
           aria-label="My Passes"
         >
@@ -92,7 +92,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           className={`flex flex-col items-center justify-center flex-1 h-full transition-colors ${
             activeTab === 'community'
               ? 'text-[#9E0038] font-extrabold'
-              : 'text-[#554336] hover:text-[#121c2a]'
+              : 'text-[#78716C] hover:text-[#1C1917]'
           }`}
           aria-label="Community Buzz"
         >

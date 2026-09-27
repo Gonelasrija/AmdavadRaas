@@ -161,8 +161,10 @@ export const AmdavadLogo: React.FC<LogoProps> = ({
               Amdavad Raas
             </span>
           </div>
-          <span className="text-[10px] font-bold tracking-widest text-[#D92662] uppercase mt-0.5">
-            Navratri 2025
+          <span className="text-[10px] font-bold tracking-widest text-[#E65100] uppercase mt-0.5 flex items-center gap-1">
+            <span>Navratri 2025</span>
+            <span className="w-1 h-1 rounded-full bg-[#E65100]/60"></span>
+            <span className="text-[9px] font-semibold text-stone-500 lowercase tracking-normal">અમદાવાદ</span>
           </span>
         </div>
       )}

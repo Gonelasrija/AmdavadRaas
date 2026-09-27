@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+:root {
+  /* Amdavad Raas Gujarati Festive Palette */
+  --primary: #9E0038;
+  --primary-hover: #7D002C;
+  --primary-deep: #58001F;
+  --primary-light: #FFF0F4;
+  --secondary: #E65100;
+  --secondary-warm: #F59E0B;
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #FEF3C7;
+  --bg-cream: #FCFAF7;
+  --surface-card: #FFFFFF;
+  --text-charcoal: #1C1917;
+  --text-muted: #57534E;
+  --border-delicate: #E7E5E4;
+  --border-accent: #FED7E2;
+  --success-emerald: #047857;
+  --warning-amber: #D97706;
+  --error-crimson: #DC2626;
+}
+
 @layer base {
   html, body {
     min-height: 100%;
@@ -7,8 +28,32 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #FCFAF7;
+    color: #1C1917;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Subtle Gujarati Bandhani & Rangoli Pattern Backgrounds */
+.bg-bandhani-pattern {
+  background-color: #FCFAF7;
+  background-image: radial-gradient(rgba(158, 0, 56, 0.05) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+.bg-festive-hero {
+  background: radial-gradient(ellipse at 50% 0%, rgba(254, 243, 199, 0.45) 0%, rgba(255, 240, 244, 0.3) 45%, #FCFAF7 85%);
+}
+
+.bg-diya-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.15) 0%, rgba(158, 0, 56, 0.04) 50%, transparent 70%);
 }
 
 /* Leaflet marker custom styling resets */
@@ -30,3 +75,17 @@
 .pb-safe {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
+
+/* Card Subtle Elevation */
+.card-elevation {
+  box-shadow: 0 1px 3px 0 rgba(28, 25, 23, 0.04), 0 1px 2px -1px rgba(28, 25, 23, 0.04);
+}
+
+.card-elevation-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-elevation-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(158, 0, 56, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+

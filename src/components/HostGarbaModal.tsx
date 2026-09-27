@@ -165,14 +165,14 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex justify-center p-0 sm:p-4 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-[#f8f9ff] sm:rounded-3xl shadow-2xl flex flex-col min-h-screen sm:min-h-0 sm:max-h-[92vh] overflow-hidden">
+      <div className="relative w-full max-w-2xl bg-[#FCFAF7] sm:rounded-3xl shadow-2xl flex flex-col min-h-screen sm:min-h-0 sm:max-h-[92vh] overflow-hidden border border-[#E7E5E4]">
         {/* Header */}
-        <div className="sticky top-0 z-30 px-4 py-3 bg-[#f8f9ff]/90 backdrop-blur-md border-b border-[#dee9fc] flex items-center justify-between">
+        <div className="sticky top-0 z-30 px-5 py-4 bg-white/95 backdrop-blur-md border-b border-[#E7E5E4] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#9E0038] animate-pulse" />
-            <h2 className="text-sm font-bold text-[#121c2a]">Host A Garba · List Event</h2>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#9E0038] animate-pulse" />
+            <h2 className="text-sm font-extrabold text-[#1C1917]">Host A Garba · List Event</h2>
           </div>
-          <button onClick={onClose} className="p-1 rounded-full hover:bg-white text-gray-500">
+          <button onClick={onClose} className="p-1.5 rounded-full hover:bg-[#FCFAF7] text-[#78716C] hover:text-[#1C1917] transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -180,12 +180,12 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
         {/* Scrollable Form Body */}
         <form onSubmit={handleSubmit} className="overflow-y-auto p-4 sm:p-6 flex flex-col gap-5 pb-20">
           {/* Greeting Banner */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#9E0038] via-[#C41E3A] to-[#D92662] p-4 text-white shadow-md">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#9E0038] via-[#85002C] to-[#58001F] p-5 text-white shadow-md">
             <div className="relative z-10 flex flex-col gap-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-pink-200">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#FEF3C7]">
                 Navratri 2025 Registration
               </span>
-              <h3 className="text-base sm:text-lg font-bold">List Your Garba Event</h3>
+              <h3 className="text-base sm:text-lg font-extrabold">List Your Garba Event</h3>
               <p className="text-xs text-white/90 leading-relaxed">
                 Share your local Sheri Garba, Pol mandli, or grand party plot celebration with 50,000+ enthusiastic Amdavadis.
               </p>
@@ -195,15 +195,15 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
           {/* Celebration Type 2x2 Grid */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-bold text-[#121c2a]">Celebration Type</label>
+              <label className="text-xs font-bold text-[#1C1917]">Celebration Type</label>
               <span className="text-[10px] font-bold text-[#9E0038] uppercase">Step 1 of 5</span>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2.5">
               {[
-                { type: 'Traditional Sheri / Pol', desc: 'Free traditional communal', icon: 'nightlife' },
-                { type: 'Society Mandli', desc: 'Residents & friends', icon: 'groups' },
-                { type: 'Party Plot / Club', desc: 'Ticketed live orchestra', icon: 'stadium' },
-                { type: 'College / Youth', desc: 'Campus energy & passes', icon: 'school' },
+                { type: 'Traditional Sheri / Pol', desc: 'Free traditional communal' },
+                { type: 'Society Mandli', desc: 'Residents & friends' },
+                { type: 'Party Plot / Club', desc: 'Ticketed live orchestra' },
+                { type: 'College / Youth', desc: 'Campus energy & passes' },
               ].map((item) => {
                 const isSelected = celebrationType === item.type;
                 return (
@@ -211,10 +211,10 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                     key={item.type}
                     type="button"
                     onClick={() => setCelebrationType(item.type as VenueType)}
-                    className={`p-3 rounded-2xl text-left border transition-all flex flex-col justify-between h-22 ${
+                    className={`p-3.5 rounded-2xl text-left border transition-all flex flex-col justify-between h-24 ${
                       isSelected
-                        ? 'border-[#9E0038] bg-pink-50/40 ring-2 ring-[#9E0038]/20'
-                        : 'border-[#dee9fc] bg-white hover:bg-[#eff4ff]'
+                        ? 'border-[#9E0038] bg-[#FFF0F4] ring-2 ring-[#9E0038]/20 shadow-xs'
+                        : 'border-[#E7E5E4] bg-white hover:bg-[#FCFAF7]'
                     }`}
                   >
                     <div className="flex justify-between items-center w-full">
@@ -222,8 +222,8 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                       {isSelected && <Check className="w-4 h-4 text-[#9E0038]" />}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#121c2a]">{item.type}</div>
-                      <div className="text-[10px] text-gray-500">{item.desc}</div>
+                      <div className="text-xs font-bold text-[#1C1917]">{item.type}</div>
+                      <div className="text-[10px] text-[#57534E]">{item.desc}</div>
                     </div>
                   </button>
                 );
@@ -232,32 +232,32 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
           </div>
 
           {/* Core Details */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
             <div className="flex items-center gap-1.5 font-bold text-[#9E0038]">
               <Ticket className="w-4 h-4" />
               <span>Core Details</span>
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Event / Mahotsav Name</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Event / Mahotsav Name</label>
               <input
                 type="text"
                 required
                 value={eventName}
                 onChange={(e) => setEventName(e.target.value)}
                 placeholder="e.g. Manek Chowk Heritage Pol Raas or Gulmohar Greens Mandli"
-                className="w-full px-3 py-2.5 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               />
             </div>
 
             {/* Participating Nights Selector */}
             <div className="flex flex-col gap-1.5">
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-[#554336]">Participating Nights</span>
+                <span className="font-semibold text-[#57534E]">Participating Nights</span>
                 <button
                   type="button"
                   onClick={handleSelectAllNights}
-                  className="text-[10px] text-[#8d4b00] font-bold hover:underline"
+                  className="text-[10px] text-[#9E0038] font-bold hover:underline"
                 >
                   Select All 9 Nights
                 </button>
@@ -272,8 +272,8 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                       onClick={() => toggleNight(n)}
                       className={`py-1.5 rounded-lg text-xs font-bold transition-colors ${
                         isChecked
-                          ? 'bg-[#8d4b00] text-white shadow-xs'
-                          : 'bg-[#eff4ff] text-[#554336] hover:bg-[#dee9fc]'
+                          ? 'bg-[#9E0038] text-white shadow-xs'
+                          : 'bg-[#FCFAF7] text-[#57534E] border border-[#E7E5E4] hover:bg-[#F5F5F4]'
                       }`}
                     >
                       N{n}
@@ -286,39 +286,39 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
             {/* Timings */}
             <div className="grid grid-cols-2 gap-2 pt-1">
               <div>
-                <label className="font-semibold text-[#554336] block mb-1">Dhol Start</label>
+                <label className="font-semibold text-[#57534E] block mb-1">Dhol Start</label>
                 <input
                   type="text"
                   value={dholStart}
                   onChange={(e) => setDholStart(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs text-center"
+                  className="w-full px-3 py-2 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-xs text-center text-[#1C1917]"
                 />
               </div>
               <div>
-                <label className="font-semibold text-[#554336] block mb-1">Maha Aarti</label>
+                <label className="font-semibold text-[#57534E] block mb-1">Maha Aarti</label>
                 <input
                   type="text"
                   value={mahaAarti}
                   onChange={(e) => setMahaAarti(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs text-center"
+                  className="w-full px-3 py-2 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-xs text-center text-[#1C1917]"
                 />
               </div>
             </div>
           </div>
 
           {/* Venue & Amdavad Area */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
-            <div className="flex items-center gap-1.5 font-bold text-[#8d4b00]">
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
+            <div className="flex items-center gap-1.5 font-bold text-[#9E0038]">
               <MapPin className="w-4 h-4" />
               <span>Venue & Amdavad Area</span>
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Primary Neighborhood</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Primary Neighborhood</label>
               <select
                 value={area}
                 onChange={(e) => setArea(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               >
                 <option value="Old City (Pols)">Old City (Heritage Pols)</option>
                 <option value="SG Highway">SG Highway (Bodakdev / Thaltej)</option>
@@ -331,50 +331,50 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Ground / Hall Exact Address</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Ground / Hall Exact Address</label>
               <textarea
                 rows={2}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="e.g. Near Astodia Darwaja, Khadia or Club O7 Road"
-                className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none resize-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038] resize-none"
               />
             </div>
           </div>
 
           {/* Troupe & Sound Configuration */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
-            <div className="flex items-center gap-1.5 font-bold text-[#8d4b00]">
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
+            <div className="flex items-center gap-1.5 font-bold text-[#9E0038]">
               <Music className="w-4 h-4" />
               <span>Musical Troupe & Sound</span>
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Lead Artist / Troupe Name</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Lead Artist / Troupe Name</label>
               <input
                 type="text"
                 value={leadArtist}
                 onChange={(e) => setLeadArtist(e.target.value)}
                 placeholder="e.g. Baroda Dholaks or Hemant Chauhan Troupe"
-                className="w-full px-3 py-2.5 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               />
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Sound Configuration</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Sound Configuration</label>
               <div className="grid grid-cols-1 gap-1.5">
                 {[
                   'Acoustic Dholak & Manjira (Pol Style)',
                   'Line Array Professional Rig (100 dB)',
                   'Silent Garba (Wireless Headphones)',
                 ].map((s) => (
-                  <label key={s} className="flex items-center gap-2 p-2 rounded-xl bg-[#eff4ff] cursor-pointer">
+                  <label key={s} className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FCFAF7] border border-[#E7E5E4] cursor-pointer text-[#1C1917]">
                     <input
                       type="radio"
                       name="sound"
                       checked={soundConfig === s}
                       onChange={() => setSoundConfig(s)}
-                      className="accent-[#8d4b00]"
+                      className="accent-[#9E0038]"
                     />
                     <span>{s}</span>
                   </label>
@@ -384,18 +384,18 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
           </div>
 
           {/* Vibe, Attire & Ground Surface */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
-            <div className="flex items-center gap-1.5 font-bold text-[#af275a]">
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
+            <div className="flex items-center gap-1.5 font-bold text-[#9E0038]">
               <Shirt className="w-4 h-4" />
               <span>Vibe, Attire & Ground Safety</span>
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Dress Code Norms</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Dress Code Norms</label>
               <select
                 value={dressCodeNorm}
                 onChange={(e) => setDressCodeNorm(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               >
                 <option value="Strict Chaniya Choli / Kediyu">Strict Chaniya Choli / Kediyu (No Casuals)</option>
                 <option value="Kutchhi Rabari Attire">Kutchhi Rabari Traditional</option>
@@ -404,7 +404,7 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
             </div>
 
             <div>
-              <label className="font-semibold text-[#554336] block mb-1">Ground Surface (Knee & Barefoot Safety)</label>
+              <label className="font-semibold text-[#57534E] block mb-1">Ground Surface (Knee & Barefoot Safety)</label>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   'Soft Red Sand (Reti)',
@@ -418,8 +418,8 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                     onClick={() => setGroundSurface(surface as any)}
                     className={`p-2.5 rounded-xl text-left border text-xs transition-colors ${
                       groundSurface === surface
-                        ? 'border-[#9E0038] bg-pink-50/40 font-bold text-[#9E0038]'
-                        : 'border-[#dee9fc] bg-[#f8f9ff] text-[#554336]'
+                        ? 'border-[#9E0038] bg-[#FFF0F4] font-bold text-[#9E0038]'
+                        : 'border-[#E7E5E4] bg-[#FCFAF7] text-[#57534E]'
                     }`}
                   >
                     {surface}
@@ -430,18 +430,18 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
           </div>
 
           {/* Entry & Passes Controls */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
             <div className="flex items-center gap-1.5 font-bold text-[#9E0038]">
               <Ticket className="w-4 h-4" />
               <span>Entry & Access Controls</span>
             </div>
 
-            <div className="flex p-1 bg-[#eff4ff] rounded-xl">
+            <div className="flex p-1 bg-[#FCFAF7] border border-[#E7E5E4] rounded-xl">
               <button
                 type="button"
                 onClick={() => setEntryType('free')}
                 className={`flex-1 py-2 rounded-lg font-bold text-xs transition-colors ${
-                  entryType === 'free' ? 'bg-[#9E0038] text-white shadow-xs' : 'text-[#554336]'
+                  entryType === 'free' ? 'bg-[#9E0038] text-white shadow-xs' : 'text-[#57534E]'
                 }`}
               >
                 Free / Open Devotees
@@ -450,7 +450,7 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                 type="button"
                 onClick={() => setEntryType('paid')}
                 className={`flex-1 py-2 rounded-lg font-bold text-xs transition-colors ${
-                  entryType === 'paid' ? 'bg-[#9E0038] text-white shadow-xs' : 'text-[#554336]'
+                  entryType === 'paid' ? 'bg-[#9E0038] text-white shadow-xs' : 'text-[#57534E]'
                 }`}
               >
                 Pass / Ticketed Only
@@ -460,21 +460,21 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
             {entryType === 'paid' && (
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <div>
-                  <label className="font-semibold text-[#554336] block mb-1">Single Pass (₹)</label>
+                  <label className="font-semibold text-[#57534E] block mb-1">Single Pass (₹)</label>
                   <input
                     type="number"
                     value={malePassPrice}
                     onChange={(e) => setMalePassPrice(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs"
+                    className="w-full px-3 py-2 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-xs text-[#1C1917]"
                   />
                 </div>
                 <div>
-                  <label className="font-semibold text-[#554336] block mb-1">Couple Pass (₹)</label>
+                  <label className="font-semibold text-[#57534E] block mb-1">Couple Pass (₹)</label>
                   <input
                     type="number"
                     value={couplePassPrice}
                     onChange={(e) => setCouplePassPrice(Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs"
+                    className="w-full px-3 py-2 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-xs text-[#1C1917]"
                   />
                 </div>
               </div>
@@ -482,8 +482,8 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
           </div>
 
           {/* Organizer Verification */}
-          <div className="p-4 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex flex-col gap-3 text-xs">
-            <span className="font-bold text-[#121c2a]">Organizer & WhatsApp Verification</span>
+          <div className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3 text-xs">
+            <span className="font-bold text-[#1C1917]">Organizer & WhatsApp Verification</span>
             <div className="grid grid-cols-2 gap-2">
               <input
                 type="text"
@@ -491,7 +491,7 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                 value={organizerName}
                 onChange={(e) => setOrganizerName(e.target.value)}
                 placeholder="Organizer / Mandal Lead"
-                className="px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               />
               <input
                 type="tel"
@@ -499,10 +499,10 @@ export const HostGarbaModal: React.FC<HostGarbaModalProps> = ({
                 value={whatsapp}
                 onChange={(e) => setWhatsapp(e.target.value)}
                 placeholder="WhatsApp (+91 98250...)"
-                className="px-3 py-2 rounded-xl border border-[#dee9fc] bg-[#f8f9ff] text-xs focus:outline-none"
+                className="px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
               />
             </div>
-            <p className="text-[10px] text-gray-500">
+            <p className="text-[10px] text-[#78716C]">
               Listing undergoes rapid community moderation (under 15 mins).
             </p>
           </div>

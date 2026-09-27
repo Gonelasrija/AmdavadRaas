@@ -83,25 +83,25 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-[#dee9fc]">
+      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-[#E7E5E4]">
         {/* Header */}
-        <div className="p-4 bg-pink-50/50 border-b border-pink-100 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#9E0038] text-white flex items-center justify-center">
+        <div className="p-4 bg-[#FFF0F4] border-b border-[#FED7E2] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-[#9E0038] text-white flex items-center justify-center shadow-xs">
               <Car className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-[#121c2a]">
+              <h3 className="text-sm font-extrabold text-[#1C1917]">
                 Pre-book Parking Spot
               </h3>
-              <p className="text-[11px] text-[#554336] truncate max-w-[220px]">
+              <p className="text-[11px] text-[#57534E] truncate max-w-[220px]">
                 {event.venueName}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-white text-gray-500 transition-colors"
+            className="p-1.5 rounded-full hover:bg-white text-[#78716C] hover:text-[#1C1917] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -110,7 +110,7 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
         {/* Form Body */}
         <form onSubmit={handlePreBook} className="overflow-y-auto p-4 sm:p-5 flex flex-col gap-4">
           {errorMsg && (
-            <div className="p-2.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-1.5 font-medium">
+            <div className="p-3 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2 font-medium">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMsg}</span>
             </div>
@@ -137,10 +137,10 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
               </p>
               <div className="space-y-1.5">
                 {event.nearbyFreeParking.map((freeP) => (
-                  <div key={freeP.id} className="p-2 bg-white rounded-xl border border-emerald-100 flex items-center justify-between text-xs">
+                  <div key={freeP.id} className="p-2.5 bg-white rounded-xl border border-emerald-100 flex items-center justify-between text-xs">
                     <div>
-                      <p className="font-bold text-[#121c2a] text-[11px]">{freeP.name}</p>
-                      <p className="text-[10px] text-gray-500">{freeP.locationHint} ({freeP.walkTime})</p>
+                      <p className="font-bold text-[#1C1917] text-[11px]">{freeP.name}</p>
+                      <p className="text-[10px] text-[#78716C]">{freeP.locationHint} ({freeP.walkTime})</p>
                     </div>
                     <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md shrink-0">
                       {freeP.distance}
@@ -153,7 +153,7 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
 
           {/* Select Parking Lot */}
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold text-[#121c2a]">Or Reserve On-Venue Guaranteed Bay</label>
+            <label className="text-xs font-bold text-[#1C1917]">Or Reserve On-Venue Guaranteed Bay</label>
             <div className="grid grid-cols-1 gap-2">
               {event.parkingLots.map((lot) => {
                 const isSelected = lot.code === selectedLotCode;
@@ -168,22 +168,22 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
                     }}
                     className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
                       isSelected
-                        ? 'border-[#9E0038] bg-pink-50/40 ring-1 ring-[#9E0038]'
-                        : 'border-[#dee9fc] bg-white hover:bg-[#eff4ff]'
+                        ? 'border-[#9E0038] bg-[#FFF0F4]/60 ring-1 ring-[#9E0038]'
+                        : 'border-[#E7E5E4] bg-white hover:bg-[#FCFAF7]'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <span className="w-7 h-7 rounded-lg bg-pink-100 text-[#700028] text-xs font-bold flex items-center justify-center shrink-0">
+                      <span className="w-7 h-7 rounded-xl bg-[#FFF0F4] text-[#9E0038] text-xs font-bold flex items-center justify-center shrink-0 border border-[#FED7E2]">
                         {lot.code}
                       </span>
                       <div className="flex flex-col text-left">
-                        <span className="text-xs font-bold text-[#121c2a]">{lot.name}</span>
-                        <span className="text-[10px] text-gray-500">{lot.statusText}</span>
+                        <span className="text-xs font-bold text-[#1C1917]">{lot.name}</span>
+                        <span className="text-[10px] text-[#78716C]">{lot.statusText}</span>
                       </div>
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className="text-xs font-bold text-[#9E0038]">
+                      <span className="text-xs font-bold text-[#9E0038] tabular-nums">
                         {lot.price === 0 ? 'Free' : `₹${lot.price}`}
                       </span>
                       <span className="text-[9px] text-emerald-700 font-semibold block">
@@ -198,36 +198,36 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
 
           {/* Vehicle Information */}
           <div className="flex flex-col gap-2.5 text-xs">
-            <label className="font-bold text-[#121c2a]">Vehicle Registration Plate</label>
+            <label className="font-bold text-[#1C1917]">Vehicle Registration Plate</label>
             <input
               type="text"
               required
               value={vehicleNumber}
               onChange={(e) => setVehicleNumber(e.target.value)}
               placeholder="e.g. GJ-01-AB-1234 or GJ-18-XX-9999"
-              className="w-full px-3 py-2.5 rounded-xl border border-[#dee9fc] text-xs uppercase font-mono tracking-wider focus:outline-none focus:ring-2 focus:ring-[#9E0038]/30"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] text-xs uppercase font-mono tracking-wider focus:outline-none focus:border-[#9E0038] focus:ring-2 focus:ring-[#9E0038]/10 bg-[#FCFAF7] focus:bg-white text-[#1C1917]"
             />
 
             <div className="grid grid-cols-2 gap-2">
               <div className="flex flex-col gap-1">
-                <label className="text-[11px] font-semibold text-[#554336]">Driver / Owner Name</label>
+                <label className="text-[11px] font-semibold text-[#57534E]">Driver / Owner Name</label>
                 <input
                   type="text"
                   value={driverName}
                   onChange={(e) => setDriverName(e.target.value)}
                   placeholder="e.g. Yash Patel"
-                  className="px-3 py-2 rounded-xl border border-[#dee9fc] text-xs focus:outline-none focus:ring-1 focus:ring-[#9E0038]"
+                  className="px-3.5 py-2 rounded-xl border border-[#E7E5E4] text-xs focus:outline-none focus:border-[#9E0038] bg-[#FCFAF7] focus:bg-white text-[#1C1917]"
                 />
               </div>
               <div className="flex flex-col gap-1">
-                <label className="text-[11px] font-semibold text-[#554336]">Mobile for SMS Tag</label>
+                <label className="text-[11px] font-semibold text-[#57534E]">Mobile for SMS Tag</label>
                 <input
                   type="tel"
                   required
                   value={driverPhone}
                   onChange={(e) => setDriverPhone(e.target.value)}
                   placeholder="10-digit number"
-                  className="px-3 py-2 rounded-xl border border-[#dee9fc] text-xs focus:outline-none focus:ring-1 focus:ring-[#9E0038]"
+                  className="px-3.5 py-2 rounded-xl border border-[#E7E5E4] text-xs focus:outline-none focus:border-[#9E0038] bg-[#FCFAF7] focus:bg-white text-[#1C1917]"
                 />
               </div>
             </div>
@@ -235,11 +235,11 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
 
           {/* Preferred Arrival Slot */}
           <div className="flex flex-col gap-1.5 text-xs">
-            <label className="font-bold text-[#121c2a]">Expected Entry Time Slot</label>
+            <label className="font-bold text-[#1C1917]">Expected Entry Time Slot</label>
             <select
               value={timeSlot}
               onChange={(e) => setTimeSlot(e.target.value)}
-              className="px-3 py-2 rounded-xl border border-[#dee9fc] bg-white text-xs text-[#121c2a] focus:outline-none focus:ring-1 focus:ring-[#9E0038]"
+              className="px-3.5 py-2 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-xs text-[#1C1917] focus:outline-none focus:border-[#9E0038]"
             >
               <option value="07:30 PM – 08:30 PM">07:30 PM – 08:30 PM (Early Bird / Smooth Flow)</option>
               <option value="08:30 PM – 09:30 PM">08:30 PM – 09:30 PM (Peak Entry)</option>
@@ -248,7 +248,7 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
           </div>
 
           {/* Valet Fast Retrieval Guarantee */}
-          <div className="p-3 rounded-2xl bg-pink-50/40 border border-pink-100 text-xs flex items-start gap-2 text-[#554336]">
+          <div className="p-3 rounded-2xl bg-[#FFF0F4]/60 border border-[#FED7E2] text-xs flex items-start gap-2 text-[#57534E]">
             <ShieldCheck className="w-4 h-4 text-[#9E0038] shrink-0 mt-0.5" />
             <p className="text-[11px] leading-relaxed">
               Guaranteed reserved bay. Present your digital QR at the turnstile gate barrier for automatic boom barrier opening.
@@ -259,7 +259,7 @@ export const ParkingPreBookModal: React.FC<ParkingPreBookModalProps> = ({
           <button
             type="submit"
             disabled={isProcessing}
-            className="w-full py-3 px-4 rounded-xl bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs sm:text-sm font-bold shadow-md active:scale-98 transition-all flex items-center justify-center gap-2"
+            className="w-full py-3 px-4 rounded-xl bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs sm:text-sm font-bold shadow-sm active:scale-98 transition-all flex items-center justify-center gap-2"
           >
             {isProcessing ? (
               <span className="flex items-center gap-2">

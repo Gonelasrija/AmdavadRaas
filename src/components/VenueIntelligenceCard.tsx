@@ -50,88 +50,88 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col min-w-0 flex-1">
           <div className="flex items-center gap-1.5 mb-1.5 flex-wrap">
-            <span className="px-2 py-0.5 bg-[#ffdcc3] text-[#2f1500] rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 bg-[#FFF0F4] text-[#9E0038] rounded-full text-[10px] font-extrabold uppercase tracking-wider border border-[#9E0038]/20">
               LIVE TONIGHT
             </span>
-            <span className="px-2 py-0.5 bg-[#ffd9e0] text-[#3f0019] rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+            <span className="px-2.5 py-0.5 bg-[#FEF3C7] text-[#B45309] rounded-full text-[10px] font-extrabold uppercase tracking-wider">
               {event.area}
             </span>
           </div>
 
-          <h2 className="text-lg sm:text-xl font-extrabold text-[#121c2a] leading-tight truncate">
+          <h2 className="text-lg sm:text-xl font-extrabold text-[#1C1917] leading-tight truncate">
             {event.venueName}
           </h2>
 
-          <p className="text-xs text-[#554336] flex items-center gap-1 mt-1 truncate">
-            <MapPin className="w-3.5 h-3.5 text-[#8d4b00] shrink-0" />
+          <p className="text-xs text-[#57534E] flex items-center gap-1 mt-1 truncate">
+            <MapPin className="w-3.5 h-3.5 text-[#9E0038] shrink-0" />
             <span className="truncate">{event.fullAddress}</span>
           </p>
         </div>
 
         {/* Thumbnail with Time Tag */}
-        <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shadow-sm shrink-0">
+        <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden shadow-xs shrink-0 border border-[#E7E5E4]">
           <img
             src={event.thumbnailImage || event.bannerImage}
             alt={event.venueName}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover"
           />
-          <span className="absolute bottom-0 right-0 bg-[#8d4b00]/95 text-white px-1.5 py-0.2 rounded-tl text-[10px] font-bold">
+          <span className="absolute bottom-0 right-0 bg-[#9E0038]/95 text-white px-2 py-0.5 rounded-tl-lg text-[10px] font-bold">
             {event.dholStartTime}
           </span>
         </div>
       </div>
 
       {/* Headliner Artist Strip */}
-      <div className="p-2.5 rounded-xl bg-[#eff4ff] flex items-center justify-between gap-2 border border-[#dee9fc]">
+      <div className="p-3 rounded-2xl bg-[#FCFAF7] flex items-center justify-between gap-2 border border-[#E7E5E4]">
         <div className="flex items-center gap-2.5 min-w-0">
-          <div className="w-8 h-8 rounded-full bg-[#af275a] text-white flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#9E0038] text-white flex items-center justify-center shrink-0 shadow-xs">
             <Mic className="w-4 h-4" />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-xs font-bold text-[#af275a] truncate">
+            <span className="text-xs font-bold text-[#9E0038] truncate">
               {event.headliners[0]}
             </span>
-            <span className="text-[11px] text-[#554336] truncate">
+            <span className="text-[11px] text-[#57534E] truncate">
               {event.specialGuest || event.themeTitle}
             </span>
           </div>
         </div>
         <button
           onClick={() => onViewEventDetail(event)}
-          className="text-xs font-semibold text-[#8d4b00] hover:underline shrink-0 px-2 py-1"
+          className="text-xs font-bold text-[#9E0038] hover:underline shrink-0 px-2 py-1"
         >
           Lineup & Bio
         </button>
       </div>
 
       {/* Theme & Dress Code Highlight Strip */}
-      <div className="p-2.5 rounded-xl bg-[#fffbff] border border-[#ffddb8] flex flex-col gap-1 text-xs">
+      <div className="p-3 rounded-2xl bg-white border border-[#E7E5E4] flex flex-col gap-1 text-xs">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1 font-bold text-[#8d4b00]">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-1.5 font-bold text-[#1C1917]">
+            <Sparkles className="w-3.5 h-3.5 text-[#9E0038]" />
             <span>Theme: {event.themeTitle}</span>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffd9e0] text-[#8e0542] font-bold">
+          <span className="text-[10px] px-2 py-0.5 rounded-md bg-[#FFF0F4] text-[#9E0038] font-bold border border-[#9E0038]/20">
             {event.dressCodeStrictness}
           </span>
         </div>
-        <p className="text-[11px] text-[#554336] leading-relaxed line-clamp-2">
+        <p className="text-[11px] text-[#57534E] leading-relaxed line-clamp-2">
           <strong>Dress Code:</strong> {event.dressCodeWomen}
         </p>
       </div>
 
       {/* Pass Pricing Strip */}
-      <div className="flex items-center justify-between px-3 py-2 rounded-xl bg-pink-50/60 border border-pink-100 text-xs font-bold text-[#121c2a]">
+      <div className="flex items-center justify-between px-3 py-2.5 rounded-2xl bg-[#FFF0F4]/60 border border-[#FED7E2] text-xs font-bold text-[#1C1917]">
         <div className="flex items-center gap-1.5">
           <Ticket className="w-4 h-4 text-[#9E0038]" />
           <span>Pass from: {event.startingPrice === 0 ? 'Free' : `₹${event.startingPrice}`}</span>
         </div>
         <div className="h-3 w-px bg-pink-200" />
-        <span className="text-[#D92662]">
+        <span className="text-[#9E0038]">
           Couple: ₹{event.passTiers[1]?.price || Math.round(event.startingPrice * 1.8)}
         </span>
-        <span className="text-[10px] px-1.5 py-0.5 rounded bg-white text-[#9E0038] font-bold shadow-xs">
+        <span className="text-[10px] px-2 py-0.5 rounded-md bg-white text-[#9E0038] font-bold shadow-2xs border border-pink-200">
           Instant QR
         </span>
       </div>
@@ -244,11 +244,11 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
       )}
 
       {/* Smart Parking Monitor Widget */}
-      <div className="flex flex-col gap-2 bg-[#f8f9ff] p-3 rounded-xl border border-[#dee9fc]">
+      <div className="flex flex-col gap-2.5 bg-[#FCFAF7] p-3.5 rounded-2xl border border-[#E7E5E4]">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             <Car className="w-4 h-4 text-[#9E0038]" />
-            <h3 className="text-xs font-bold text-[#121c2a]">On-Venue Reserved & Valet Parking</h3>
+            <h3 className="text-xs font-bold text-[#1C1917]">On-Venue Reserved & Valet Parking</h3>
           </div>
           <span className="text-[10px] font-bold text-[#9E0038] flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -259,14 +259,14 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
         {/* 3 Parking Lots Grid */}
         <div className="grid grid-cols-1 gap-1.5">
           {p1 && (
-            <div className="flex items-center justify-between p-2 rounded-lg bg-white shadow-xs">
+            <div className="flex items-center justify-between p-2.5 rounded-xl bg-white shadow-2xs border border-[#E7E5E4]">
               <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded bg-pink-100 text-[#700028] flex items-center justify-center text-[10px] font-bold">
+                <span className="w-6 h-6 rounded-lg bg-[#FFF0F4] text-[#9E0038] flex items-center justify-center text-[10px] font-bold">
                   {p1.code}
                 </span>
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold text-[#121c2a]">{p1.name}</span>
-                  <span className="text-[10px] text-gray-500">₹{p1.price} · Fast Lane Access</span>
+                  <span className="text-xs font-bold text-[#1C1917]">{p1.name}</span>
+                  <span className="text-[10px] text-[#57534E]">₹{p1.price} · Fast Lane Access</span>
                 </div>
               </div>
               <div className="flex flex-col items-end">
@@ -275,20 +275,20 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
                 }`}>
                   {p1.fillPercentage}% Full
                 </span>
-                <span className="text-[10px] text-gray-500">{p1.availableSpots} spots left</span>
+                <span className="text-[10px] text-[#57534E]">{p1.availableSpots} spots left</span>
               </div>
             </div>
           )}
 
           {p2 && (
-            <div className="flex items-center justify-between p-2 rounded-lg bg-white shadow-xs">
+            <div className="flex items-center justify-between p-2.5 rounded-xl bg-white shadow-2xs border border-[#E7E5E4]">
               <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded bg-amber-100 text-[#5c3a00] flex items-center justify-center text-[10px] font-bold">
+                <span className="w-6 h-6 rounded-lg bg-amber-100 text-[#5c3a00] flex items-center justify-center text-[10px] font-bold">
                   {p2.code}
                 </span>
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold text-[#121c2a]">{p2.name}</span>
-                  <span className="text-[10px] text-gray-500">₹{p2.price} · General Public</span>
+                  <span className="text-xs font-bold text-[#1C1917]">{p2.name}</span>
+                  <span className="text-[10px] text-[#57534E]">₹{p2.price} · General Public</span>
                 </div>
               </div>
               <div className="flex flex-col items-end">
@@ -301,21 +301,21 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
           )}
 
           {p3 && (
-            <div className="flex items-center justify-between p-2 rounded-lg bg-white shadow-xs">
+            <div className="flex items-center justify-between p-2.5 rounded-xl bg-white shadow-2xs border border-[#E7E5E4]">
               <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded bg-[#dee9fc] text-[#121c2a] flex items-center justify-center text-[10px] font-bold">
+                <span className="w-6 h-6 rounded-lg bg-slate-100 text-[#1C1917] flex items-center justify-center text-[10px] font-bold">
                   {p3.code}
                 </span>
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold text-[#121c2a]">{p3.name}</span>
-                  <span className="text-[10px] text-gray-500">{p3.statusText}</span>
+                  <span className="text-xs font-bold text-[#1C1917]">{p3.name}</span>
+                  <span className="text-[10px] text-[#57534E]">{p3.statusText}</span>
                 </div>
               </div>
               <div className="flex flex-col items-end">
                 <span className="px-2 py-0.5 rounded-full bg-gray-100 text-gray-800 text-[10px] font-bold">
                   Ample Space
                 </span>
-                <span className="text-[10px] text-gray-500">{p3.availableSpots}+ slots</span>
+                <span className="text-[10px] text-[#57534E]">{p3.availableSpots}+ slots</span>
               </div>
             </div>
           )}
@@ -330,7 +330,7 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-800 text-white text-xs font-bold shadow-sm hover:bg-slate-900 transition-all active:scale-95"
+            className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#1C1917] text-white text-xs font-bold shadow-xs hover:bg-black transition-all active:scale-95"
           >
             <Navigation className="w-4 h-4" />
             <span>Navigate Map</span>
@@ -339,7 +339,7 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
           {/* Book Pass CTA */}
           <button
             onClick={() => onBookPass(event)}
-            className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs font-bold shadow-sm transition-all active:scale-95"
+            className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#9E0038] hover:bg-[#7D002C] text-white text-xs font-bold shadow-xs transition-all active:scale-95"
           >
             <Ticket className="w-4 h-4" />
             <span>Book Pass</span>
@@ -349,7 +349,7 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
         {/* Pre-book Parking Slot CTA */}
         <button
           onClick={() => onPreBookParking(event)}
-          className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white border border-[#9E0038] text-[#9E0038] font-bold text-xs hover:bg-pink-50 active:scale-95 transition-all shadow-xs"
+          className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white border border-[#9E0038] text-[#9E0038] font-bold text-xs hover:bg-[#FFF0F4] active:scale-95 transition-all shadow-2xs"
         >
           <Car className="w-4 h-4" />
           <span>Pre-book Reserved Parking Slot</span>
@@ -358,7 +358,7 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
         {/* Community Driver Reviews Toggle */}
         <button
           onClick={() => setShowReviewsDrawer(!showReviewsDrawer)}
-          className="w-full flex items-center justify-center gap-1 py-1 text-xs text-[#554336] hover:text-[#9E0038] transition-colors"
+          className="w-full flex items-center justify-center gap-1 py-1 text-xs text-[#57534E] hover:text-[#9E0038] transition-colors"
         >
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Read Real-time Parking Reviews (18 Drivers Checked-in)</span>
@@ -368,23 +368,23 @@ export const VenueIntelligenceCard: React.FC<VenueIntelligenceCardProps> = ({
 
       {/* Collapsible Micro Parking Community Reviews */}
       {showReviewsDrawer && (
-        <div className="flex flex-col gap-2 pt-2 border-t border-[#dee9fc] animate-in fade-in duration-200">
-          <div className="p-2.5 rounded-xl bg-[#f8f9ff] text-xs flex flex-col gap-1 border border-[#dee9fc]">
-            <div className="flex items-center justify-between font-bold text-[#121c2a]">
+        <div className="flex flex-col gap-2 pt-2 border-t border-[#E7E5E4] animate-in fade-in duration-200">
+          <div className="p-2.5 rounded-xl bg-[#FCFAF7] text-xs flex flex-col gap-1 border border-[#E7E5E4]">
+            <div className="flex items-center justify-between font-bold text-[#1C1917]">
               <span>Hardik Shah (Swift Dzire)</span>
-              <span className="text-[10px] text-gray-500 font-normal">8 mins ago</span>
+              <span className="text-[10px] text-[#78716C] font-normal">8 mins ago</span>
             </div>
-            <p className="text-[11px] text-[#554336] leading-relaxed">
+            <p className="text-[11px] text-[#57534E] leading-relaxed">
               P1 is clogged with VIP SUVs near the fountain gate. Take P2 Gate 3 directly from SG Highway service lane to save 20 minutes!
             </p>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-[#f8f9ff] text-xs flex flex-col gap-1 border border-[#dee9fc]">
-            <div className="flex items-center justify-between font-bold text-[#121c2a]">
+          <div className="p-2.5 rounded-xl bg-[#FCFAF7] text-xs flex flex-col gap-1 border border-[#E7E5E4]">
+            <div className="flex items-center justify-between font-bold text-[#1C1917]">
               <span>Meera Joshi</span>
-              <span className="text-[10px] text-gray-500 font-normal">15 mins ago</span>
+              <span className="text-[10px] text-[#78716C] font-normal">15 mins ago</span>
             </div>
-            <p className="text-[11px] text-[#554336] leading-relaxed">
+            <p className="text-[11px] text-[#57534E] leading-relaxed">
               Valet at P3 (Iscon crossover) has dedicated female security and buggy drop right up to the Aarti gate. Very smooth!
             </p>
           </div>

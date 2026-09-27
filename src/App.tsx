@@ -162,17 +162,19 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f9ff] text-[#121c2a] flex flex-col font-sans selection:bg-[#9E0038]/20 selection:text-[#9E0038]">
+    <div className="min-h-screen bg-[#FCFAF7] text-[#1C1917] flex flex-col font-sans selection:bg-[#9E0038]/20 selection:text-[#9E0038]">
       {/* Universal Responsive Header */}
       <Header
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
         selectedArea={selectedArea}
         onSelectArea={setSelectedArea}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onOpenNotifications={() => setIsNotificationsOpen(true)}
+        onOpenHostModal={() => setIsHostModalOpen(true)}
         hasActivePasses={activePasses.length > 0}
         activePassesCount={activePasses.length}
-        onNavigateToWallet={() => setActiveTab('wallet')}
       />
 
       {/* Main View Container */}

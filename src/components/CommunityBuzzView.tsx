@@ -87,31 +87,34 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
   };
 
   return (
-    <div className="flex flex-col w-full max-w-2xl mx-auto px-4 sm:px-6 py-4 gap-5">
+    <div className="flex flex-col w-full max-w-3xl mx-auto px-4 sm:px-6 py-6 gap-6 text-[#1C1917]">
       {/* Header */}
-      <div className="flex flex-col gap-1.5">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#af275a] animate-ping" />
-          <span className="text-[10px] font-bold text-[#af275a] uppercase tracking-wider">
-            Ground Intel · 9 Nights
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#9E0038] animate-pulse" />
+          <span className="text-xs font-extrabold text-[#9E0038] uppercase tracking-wider">
+            Ground Intel · Navratri 2025
           </span>
         </div>
-        <h1 className="text-xl sm:text-2xl font-extrabold text-[#121c2a] leading-tight">
-          Live Ahmedabad Garba Community Buzz
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1C1917] tracking-tight">
+          Amdavad Garba Community Buzz
         </h1>
+        <p className="text-xs sm:text-sm text-[#57534E]">
+          Real-time ground reports, parking conditions, sound fidelity & live singer updates directly from dancers.
+        </p>
 
         {/* Crowd count card */}
-        <div className="mt-2 p-3.5 rounded-2xl bg-white border border-[#dee9fc] shadow-xs flex items-center justify-between">
+        <div className="mt-2 p-4 rounded-2xl bg-white border border-[#E7E5E4] shadow-xs flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-pink-100 text-[#9E0038] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#FFF0F4] text-[#9E0038] flex items-center justify-center">
               <Users className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[10px] text-gray-500 uppercase font-semibold">Crowd Verified</span>
-              <p className="text-base font-extrabold text-[#121c2a]">3,420+ Tonight</p>
+              <span className="text-[10px] text-[#78716C] uppercase font-bold tracking-wider">Crowd Verified</span>
+              <p className="text-base font-extrabold text-[#1C1917]">3,420+ Tonight</p>
             </div>
           </div>
-          <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-pink-50 text-[#9E0038] text-xs font-bold">
+          <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFF0F4] text-[#9E0038] text-xs font-bold border border-[#9E0038]/20">
             <Star className="w-3.5 h-3.5 text-amber-500 fill-current" />
             <span>4.8 Overall Ground Rating</span>
           </span>
@@ -119,24 +122,26 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
       </div>
 
       {/* Real-time Voice Callout Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#9E0038] via-[#C41E3A] to-[#D92662] p-4 sm:p-5 text-white shadow-md">
-        <div className="relative z-10 flex flex-col gap-2">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-200">
-            Real-Time Voice
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#9E0038] via-[#85002C] to-[#58001F] p-5 sm:p-6 text-white shadow-md">
+        <div className="relative z-10 flex flex-col gap-2.5">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#FEF3C7]">
+            Real-Time Dancer Intel
           </span>
-          <h2 className="text-base sm:text-lg font-bold leading-snug">
-            Attended Garba tonight? Share your review & photos to help fellow Amdavadis!
+          <h2 className="text-lg sm:text-xl font-extrabold leading-snug">
+            Attended Garba tonight? Share your review to guide fellow Amdavadis!
           </h2>
-          <p className="text-xs text-white/90">
-            Upload ground safety, live singer drops, and SG Highway free parking hacks.
+          <p className="text-xs text-white/80 max-w-xl leading-relaxed">
+            Report inner-circle dress code checks, parking availability on SG Highway, and live singer performance reviews.
           </p>
-          <button
-            onClick={() => setIsReviewModalOpen(true)}
-            className="mt-1 w-full py-2.5 px-4 rounded-xl bg-white text-[#9E0038] text-xs font-bold shadow-md hover:bg-pink-50 active:scale-98 transition-all flex items-center justify-center gap-2"
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>Write Review</span>
-          </button>
+          <div className="pt-2">
+            <button
+              onClick={() => setIsReviewModalOpen(true)}
+              className="py-2.5 px-5 rounded-full bg-white text-[#9E0038] text-xs font-bold shadow-md hover:bg-[#FEF3C7] active:scale-98 transition-all flex items-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Write Ground Review</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -152,10 +157,10 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
           <button
             key={tab.id}
             onClick={() => setSelectedFilter(tab.id as any)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all shadow-xs ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
               selectedFilter === tab.id
-                ? 'bg-[#9E0038] text-white'
-                : 'bg-white text-[#554336] border border-[#dee9fc] hover:bg-[#eff4ff]'
+                ? 'bg-[#9E0038] text-white shadow-xs'
+                : 'bg-white text-[#57534E] border border-[#E7E5E4] hover:bg-[#FCFAF7]'
             }`}
           >
             {tab.label}
@@ -172,25 +177,25 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
           return (
             <article
               key={rev.id}
-              className="p-4 sm:p-5 rounded-2xl bg-white border border-[#dee9fc] shadow-sm flex flex-col gap-3"
+              className="p-5 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3"
             >
               {/* Author & Header */}
               <div className="flex items-start justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-full bg-pink-100 text-[#700028] font-extrabold text-sm flex items-center justify-center shadow-xs">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-[#FFF0F4] text-[#9E0038] font-extrabold text-sm flex items-center justify-center shadow-2xs border border-[#FED7E2]">
                     {rev.avatarInitials}
                   </div>
                   <div className="flex flex-col">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-sm font-bold text-[#121c2a]">{rev.authorName}</span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-sm font-bold text-[#1C1917]">{rev.authorName}</span>
                       {rev.isVerifiedPassholder && (
-                        <span className="px-2 py-0.2 rounded-full bg-pink-100 text-[#700028] text-[10px] font-bold flex items-center gap-0.5">
-                          <Check className="w-3 h-3" />
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold flex items-center gap-1">
+                          <Check className="w-3 h-3 text-emerald-600" />
                           Verified Passholder
                         </span>
                       )}
                     </div>
-                    <span className="text-[11px] text-gray-500">
+                    <span className="text-[11px] text-[#78716C]">
                       {rev.venueName} · {rev.timeAgo}
                     </span>
                   </div>
@@ -198,27 +203,27 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
               </div>
 
               {/* Rating Badges Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs">
-                <div className="p-2 rounded-lg bg-[#eff4ff] flex items-center justify-between">
-                  <span className="text-[#554336] text-[11px]">Singer</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                <div className="p-2.5 rounded-xl bg-[#FCFAF7] border border-[#E7E5E4] flex items-center justify-between">
+                  <span className="text-[#57534E] text-[11px]">Singer</span>
                   <span className="font-bold text-[#9E0038]">{rev.singerRating}★</span>
                 </div>
-                <div className="p-2 rounded-lg bg-[#eff4ff] flex items-center justify-between">
-                  <span className="text-[#554336] text-[11px]">Parking</span>
+                <div className="p-2.5 rounded-xl bg-[#FCFAF7] border border-[#E7E5E4] flex items-center justify-between">
+                  <span className="text-[#57534E] text-[11px]">Parking</span>
                   <span className="font-bold text-[#9E0038]">{rev.parkingRating}★</span>
                 </div>
-                <div className="p-2 rounded-lg bg-[#eff4ff] flex items-center justify-between">
-                  <span className="text-[#554336] text-[11px]">Theme</span>
+                <div className="p-2.5 rounded-xl bg-[#FCFAF7] border border-[#E7E5E4] flex items-center justify-between">
+                  <span className="text-[#57534E] text-[11px]">Theme</span>
                   <span className="font-bold text-[#9E0038]">{rev.themeRating}★</span>
                 </div>
-                <div className="p-2 rounded-lg bg-[#eff4ff] flex items-center justify-between">
-                  <span className="text-[#554336] text-[11px]">Sound</span>
+                <div className="p-2.5 rounded-xl bg-[#FCFAF7] border border-[#E7E5E4] flex items-center justify-between">
+                  <span className="text-[#57534E] text-[11px]">Sound</span>
                   <span className="font-bold text-[#9E0038]">{rev.soundRating}★</span>
                 </div>
               </div>
 
               {/* Comment Text */}
-              <p className="text-xs sm:text-sm text-[#121c2a] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#1C1917] leading-relaxed">
                 {rev.comment}
               </p>
 
@@ -226,7 +231,7 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
               {rev.images && rev.images.length > 0 && (
                 <div className="grid grid-cols-2 gap-2 mt-1">
                   {rev.images.map((imgUrl, idx) => (
-                    <div key={idx} className="h-32 sm:h-36 rounded-xl overflow-hidden shadow-xs">
+                    <div key={idx} className="h-32 sm:h-36 rounded-2xl overflow-hidden shadow-xs border border-[#E7E5E4]">
                       <img
                         src={imgUrl}
                         alt="Garba ground upload"
@@ -239,13 +244,13 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
               )}
 
               {/* Helpful footer */}
-              <div className="flex items-center justify-between pt-2 border-t border-[#eff4ff] text-xs">
+              <div className="flex items-center justify-between pt-2 border-t border-[#E7E5E4] text-xs">
                 <button
                   onClick={() => toggleHelpful(rev.id, rev.helpfulCount)}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-colors ${
                     isVoted
                       ? 'bg-[#9E0038] text-white font-bold'
-                      : 'bg-[#eff4ff] text-[#554336] hover:text-[#9E0038]'
+                      : 'bg-[#FCFAF7] text-[#57534E] border border-[#E7E5E4] hover:border-[#9E0038]/30'
                   }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5" />
@@ -258,7 +263,7 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
                       navigator.share({ title: rev.venueName, text: rev.comment, url: window.location.href });
                     }
                   }}
-                  className="flex items-center gap-1 text-gray-500 hover:text-[#9E0038]"
+                  className="flex items-center gap-1 text-[#78716C] hover:text-[#9E0038]"
                 >
                   <Share2 className="w-3.5 h-3.5" />
                   <span>Share</span>
@@ -269,24 +274,24 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
         })}
       </div>
 
-      {/* Live Midnight Poll Widget matching Image 4.png */}
-      <section className="p-4 sm:p-5 rounded-3xl bg-white border border-[#dee9fc] shadow-sm flex flex-col gap-3">
+      {/* Live Midnight Poll Widget */}
+      <section className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E7E5E4] shadow-xs flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5 text-[#9E0038]">
             <Vote className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">
+            <span className="text-xs font-bold uppercase tracking-wider">
               Live Midnight Poll
             </span>
           </div>
-          <span className="text-xs text-gray-500">12.8k Votes Recorded</span>
+          <span className="text-xs text-[#78716C]">12.8k Votes Recorded</span>
         </div>
 
         <div>
-          <h3 className="text-base font-bold text-[#121c2a]">
+          <h3 className="text-base sm:text-lg font-bold text-[#1C1917]">
             Which Garba song got you dancing the hardest tonight?
           </h3>
-          <p className="text-xs text-[#554336] mt-0.5">
-            Live votes updating every 10 seconds from Ahmedabad grounds.
+          <p className="text-xs text-[#57534E] mt-0.5">
+            Live votes updating every 10 seconds from Ahmedabad & Gandhinagar grounds.
           </p>
         </div>
 
@@ -298,36 +303,43 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
               <div
                 key={opt.id}
                 onClick={() => onVotePoll(opt.id)}
-                className={`group relative rounded-2xl bg-[#eff4ff] p-3 cursor-pointer overflow-hidden transition-all active:scale-98 border ${
-                  isUserPick ? 'border-[#9E0038] ring-2 ring-[#9E0038]/20' : 'border-[#dee9fc]'
+                className={`group relative rounded-2xl bg-[#FCFAF7] p-3.5 cursor-pointer overflow-hidden transition-all active:scale-98 border ${
+                  isUserPick ? 'border-[#9E0038] ring-2 ring-[#9E0038]/20 bg-white' : 'border-[#E7E5E4] hover:border-[#9E0038]/30'
                 }`}
               >
                 {/* Progress Fill Bar */}
                 <div
-                  className="absolute left-0 top-0 bottom-0 bg-pink-200/60 transition-all duration-700"
+                  className="absolute left-0 top-0 bottom-0 bg-[#FFF0F4] transition-all duration-700"
                   style={{ width: `${opt.votesPercentage}%` }}
                 />
 
                 <div className="relative z-10 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     <Music className="w-4 h-4 text-[#9E0038]" />
-                    <span className="text-xs sm:text-sm font-bold text-[#121c2a]">
+                    <span className="text-xs sm:text-sm font-bold text-[#1C1917]">
                       {opt.title}
                     </span>
-                    <span className="text-xs text-[#554336] font-medium">
+                    <span className="text-xs text-[#57534E] font-medium">
                       ({opt.artist})
                     </span>
                   </div>
-                  <span className="text-sm font-extrabold text-[#9E0038]">
-                    {opt.votesPercentage}%
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-extrabold text-[#9E0038] tabular-nums">
+                      {opt.votesPercentage}%
+                    </span>
+                    {isUserPick && (
+                      <span className="w-4 h-4 rounded-full bg-[#9E0038] text-white flex items-center justify-center text-[10px] font-bold">
+                        ✓
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="flex items-center justify-between pt-1 text-xs text-gray-500">
+        <div className="flex items-center justify-between pt-1 text-xs text-[#78716C]">
           <span>Tap any track to cast vote</span>
           {userVotedSong && (
             <span className="text-[#9E0038] font-bold">
@@ -349,38 +361,38 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
       {/* Write Review Modal */}
       {isReviewModalOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
-          <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-[#dee9fc]">
-            <div className="p-4 bg-pink-50/50 border-b border-pink-100 flex items-center justify-between">
+          <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] border border-[#E7E5E4]">
+            <div className="p-4 bg-[#FFF0F4] border-b border-[#FED7E2] flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold uppercase text-[#9E0038]">Community Feedback</span>
-                <h3 className="text-sm font-bold text-[#121c2a]">Post Tonight's Garba Review</h3>
+                <span className="text-[10px] font-bold uppercase text-[#9E0038] tracking-wider">Community Feedback</span>
+                <h3 className="text-sm font-extrabold text-[#1C1917]">Post Tonight's Garba Review</h3>
               </div>
               <button
                 onClick={() => setIsReviewModalOpen(false)}
-                className="p-1 rounded-full hover:bg-white text-gray-500"
+                className="p-1.5 rounded-full hover:bg-white text-[#78716C] hover:text-[#1C1917] transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
-            <form onSubmit={handleReviewSubmit} className="p-4 sm:p-5 flex flex-col gap-3 text-xs overflow-y-auto">
+            <form onSubmit={handleReviewSubmit} className="p-5 flex flex-col gap-3 text-xs overflow-y-auto">
               <div>
-                <label className="font-bold text-[#121c2a] block mb-1">Your Name</label>
+                <label className="font-bold text-[#1C1917] block mb-1">Your Name</label>
                 <input
                   type="text"
                   value={authorName}
                   onChange={(e) => setAuthorName(e.target.value)}
                   placeholder="e.g. Parthiv Patel"
-                  className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] focus:outline-none focus:border-[#9E0038] focus:ring-2 focus:ring-[#9E0038]/10 bg-[#FCFAF7] focus:bg-white transition-all text-[#1C1917]"
                 />
               </div>
 
               <div>
-                <label className="font-bold text-[#121c2a] block mb-1">Venue / Ground</label>
+                <label className="font-bold text-[#1C1917] block mb-1">Venue / Ground</label>
                 <select
                   value={venueName}
                   onChange={(e) => setVenueName(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-[#dee9fc] bg-white focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] focus:bg-white focus:outline-none focus:border-[#9E0038] text-[#1C1917] transition-all"
                 >
                   <option value="Mandli Garba at YMCA Club">Mandli Garba at YMCA Club (SG Highway)</option>
                   <option value="Suvarn Navratri at Karnavati Club">Suvarn Navratri at Karnavati Club</option>
@@ -393,11 +405,11 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
 
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <div>
-                  <label className="font-semibold text-[#554336] block mb-1">Singer Energy (1-5★)</label>
+                  <label className="font-semibold text-[#57534E] block mb-1">Singer Energy (1-5★)</label>
                   <select
                     value={singerRating}
                     onChange={(e) => setSingerRating(Number(e.target.value))}
-                    className="w-full p-2 rounded-xl border border-[#dee9fc] bg-white"
+                    className="w-full p-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-[#1C1917]"
                   >
                     <option value={5}>5★ - Phenomenal</option>
                     <option value={4}>4★ - Great Beats</option>
@@ -406,11 +418,11 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="font-semibold text-[#554336] block mb-1">SG Hwy Parking (1-5★)</label>
+                  <label className="font-semibold text-[#57534E] block mb-1">SG Hwy Parking (1-5★)</label>
                   <select
                     value={parkingRating}
                     onChange={(e) => setParkingRating(Number(e.target.value))}
-                    className="w-full p-2 rounded-xl border border-[#dee9fc] bg-white"
+                    className="w-full p-2.5 rounded-xl border border-[#E7E5E4] bg-[#FCFAF7] text-[#1C1917]"
                   >
                     <option value={5}>5★ - Fast Valet</option>
                     <option value={4}>4★ - Good Space</option>
@@ -421,7 +433,7 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
               </div>
 
               <div>
-                <label className="font-bold text-[#121c2a] block mb-1">
+                <label className="font-bold text-[#1C1917] block mb-1">
                   Real-Time Tip for Fellow Amdavadis
                 </label>
                 <textarea
@@ -430,13 +442,13 @@ export const CommunityBuzzView: React.FC<CommunityBuzzViewProps> = ({
                   value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}
                   placeholder="Tell us about ground sand, crowd rush, best food stalls, or exit gate delays..."
-                  className="w-full p-3 rounded-xl border border-[#dee9fc] focus:outline-none resize-none"
+                  className="w-full p-3 rounded-xl border border-[#E7E5E4] focus:outline-none focus:border-[#9E0038] focus:ring-2 focus:ring-[#9E0038]/10 bg-[#FCFAF7] focus:bg-white resize-none text-[#1C1917]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#9E0038] text-white font-bold rounded-xl shadow-md hover:bg-[#7D002C] mt-1"
+                className="w-full py-3 bg-[#9E0038] hover:bg-[#7D002C] text-white font-bold rounded-xl shadow-sm transition-all active:scale-98 mt-1"
               >
                 Publish Ground Intel
               </button>

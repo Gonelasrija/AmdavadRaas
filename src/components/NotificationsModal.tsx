@@ -55,24 +55,24 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] border border-[#dee9fc]">
-        <div className="p-4 bg-pink-50/50 border-b border-pink-100 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[#9E0038] text-white flex items-center justify-center">
+      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] border border-[#E7E5E4]">
+        <div className="p-4 bg-[#FFF0F4] border-b border-[#FED7E2] flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-2xl bg-[#9E0038] text-white flex items-center justify-center shadow-xs">
               <Bell className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-[#121c2a]">
+              <h3 className="text-sm font-extrabold text-[#1C1917]">
                 Live Ground Notifications
               </h3>
-              <p className="text-[11px] text-[#554336]">
+              <p className="text-[11px] text-[#57534E]">
                 Ahmedabad & Gandhinagar Navratri updates
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-white text-gray-500 transition-colors"
+            className="p-1.5 rounded-full hover:bg-white text-[#78716C] hover:text-[#1C1917] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -82,13 +82,13 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
           {alerts.map((alert) => (
             <div
               key={alert.id}
-              className="p-3.5 rounded-2xl bg-[#f8f9ff] border border-[#dee9fc] flex flex-col gap-1.5 text-xs shadow-xs"
+              className="p-3.5 rounded-2xl bg-[#FCFAF7] border border-[#E7E5E4] flex flex-col gap-1.5 text-xs shadow-2xs"
             >
               <div className="flex items-start justify-between">
-                <span className="font-bold text-[#121c2a]">{alert.title}</span>
-                <span className="text-[10px] text-gray-400 shrink-0 ml-2">{alert.time}</span>
+                <span className="font-bold text-[#1C1917]">{alert.title}</span>
+                <span className="text-[10px] text-[#78716C] shrink-0 ml-2">{alert.time}</span>
               </div>
-              <p className="text-[#554336] leading-relaxed text-[11px]">
+              <p className="text-[#57534E] leading-relaxed text-[11px]">
                 {alert.desc}
               </p>
               <button
