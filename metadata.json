@@ -1,0 +1,6 @@
+{
+  "name": "Amdavad Raas - Navratri Garba, Passes & Parking",
+  "description": "Discover nearby Garba events in Ahmedabad and Gandhinagar with real-time location navigation, live parking availability & pre-booking, venue dress codes, themes, pass booking, and community intel.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
